@@ -7,6 +7,7 @@ import { View } from '../components/Themed';
 
 import { RootTabScreenProps } from '../types';
 import Colors from '../constants/Colors';
+import Login from '../services/Login.class';
 
 export default function LoginScreen({ navigation }: RootTabScreenProps<'Login'>) {
   const [email, onChangeEmail] = React.useState("");
@@ -14,6 +15,8 @@ export default function LoginScreen({ navigation }: RootTabScreenProps<'Login'>)
   const onPressSignIn = () => {
     console.log(email + password);
     Alert.alert(email);
+    const loginAPI = new Login();
+    loginAPI.login(email, password);
   }
   const onPressSignUp = () => {
     console.log(email + password);
@@ -32,7 +35,7 @@ export default function LoginScreen({ navigation }: RootTabScreenProps<'Login'>)
         onChangeText={onChangePassword}
       />
       <Pressable style={styles.button} onPress={onPressSignIn}>
-        <TitanText style={styles.text}>Sing In</TitanText>
+        <TitanText style={styles.text}>Log In</TitanText>
       </Pressable>
       <Pressable style={styles.singUpButton} onPress={onPressSignUp}>
         <TitanText style={styles.signUpText}>Sing Up</TitanText>
