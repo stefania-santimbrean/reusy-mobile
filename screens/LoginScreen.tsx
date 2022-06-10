@@ -1,10 +1,9 @@
-import { DarkTheme } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Alert, Pressable, StyleSheet } from 'react-native';
 import { TitanText } from '../components/StyledText';
 import { TitanTextInput } from '../components/StyledTextInput';
 
-import { TextInput, Text, View } from '../components/Themed';
+import { View } from '../components/Themed';
 
 import { RootTabScreenProps } from '../types';
 import Colors from '../constants/Colors';
@@ -12,6 +11,13 @@ import Colors from '../constants/Colors';
 export default function LoginScreen({ navigation }: RootTabScreenProps<'Login'>) {
   const [email, onChangeEmail] = React.useState("");
   const [password, onChangePassword] = React.useState("");
+  const onPressSignIn = () => {
+    console.log(email + password);
+    Alert.alert(email);
+  }
+  const onPressSignUp = () => {
+    console.log(email + password);
+  }
   return (
     <View style={styles.container}>
       <TitanText style={styles.signIn}>Sign In</TitanText>
@@ -25,6 +31,12 @@ export default function LoginScreen({ navigation }: RootTabScreenProps<'Login'>)
         style={styles.input}
         onChangeText={onChangePassword}
       />
+      <Pressable style={styles.button} onPress={onPressSignIn}>
+        <TitanText style={styles.text}>Sing In</TitanText>
+      </Pressable>
+      <Pressable style={styles.singUpButton} onPress={onPressSignUp}>
+        <TitanText style={styles.signUpText}>Sing Up</TitanText>
+      </Pressable>
     </View>
   );
 }
@@ -62,6 +74,28 @@ const styles = StyleSheet.create({
   button: {
     fontSize: 20,
     fontWeight: 'bold',
-    alignItems: 'flex-end'
-  }
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 2,
+    backgroundColor: Colors.dark.border,
+    borderColor: Colors.dark.border,
+    height: 45,
+    borderRadius: 4,
+    marginTop: 10
+  },
+  singUpButton: {
+    fontWeight: 'bold',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: Colors.dark.background,
+    height: 45,
+    borderRadius: 4,
+    marginBottom: 10
+  },
+  signUpText: {
+    fontSize: 15,
+    alignItems: 'flex-end',
+    borderRadius: 4,
+  },
 });
