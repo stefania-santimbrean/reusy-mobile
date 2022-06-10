@@ -13,7 +13,8 @@ export default {
     text: '#949cf4',
     background: '#1d7769',
     tint: tintColorDark,
-    tabIconDefault: '#ccc',
+    tabIconDefault: '#1d7769',
     tabIconSelected: tintColorDark,
+    border: '#343e50'
   },
 };
