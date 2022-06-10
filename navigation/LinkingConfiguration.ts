@@ -30,6 +30,11 @@ const linking: LinkingOptions<RootStackParamList> = {
               LoginScreen: 'three',
             },
           },
+          SignUp: {
+            screens: {
+              SignUpScreen: 'four',
+            },
+          },
         },
       },
       Modal: 'modal',

@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    padding: 10
+    padding: 20
   },
   signIn: {
     fontSize: 60,
