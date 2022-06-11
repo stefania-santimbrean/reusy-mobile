@@ -5,21 +5,21 @@ import { Card } from '@rneui/themed';
 import SwipeCards from 'react-native-swipe-cards';
 import React from 'react';
 import Layout from '../constants/Layout';
+import Colors from '../constants/Colors';
 
 function DonationCard(props) {
     return (
         <View style={styles.container}>
             <Card containerStyle={styles.card}>
-                <Card.Title>{props.text}</Card.Title>
+                <Card.Title style={styles.cardTitle}>{props.text}</Card.Title>
                 <Card.Divider />
                 <Card.Image
-                    style={{ padding: 0 }}
+                    style={styles.cardCover}
                     source={{
-                        uri:
-                            'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg',
+                        uri: props.uri
                     }}
                 />
-                <Text style={{ marginBottom: 10 }}>
+                <Text style={styles.cardText}>
                     The idea with React Native Elements is more about component
                     structure than actual design.
                 </Text>
@@ -38,12 +38,12 @@ function NoMoreCards(props) {
 
 export default function DefaultSwipeCards(props) {
     const [cards, setCards] = React.useState([
-        { text: 'Tomato', backgroundColor: 'red' },
-        { text: 'Aubergine', backgroundColor: 'purple' },
-        { text: 'Courgette', backgroundColor: 'green' },
-        { text: 'Blueberry', backgroundColor: 'blue' },
-        { text: 'Umm...', backgroundColor: 'cyan' },
-        { text: 'orange', backgroundColor: 'orange' }
+        { text: 'Tomato', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' },
+        { text: 'Aubergine', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' },
+        { text: 'Courgette', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' },
+        { text: 'Blueberry', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' },
+        { text: 'Umm...', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' },
+        { text: 'orange', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' }
     ])
     const handleYup = (card) => {
         console.log(`Yup for ${card.text}`)
@@ -77,11 +77,23 @@ const styles = StyleSheet.create({
         padding: 8
     },
     card: {
-        borderColor: '#FF3D00',
+        borderColor: Colors.dark.border,
         borderWidth: 2,
-        borderRadius: 9
+        borderRadius: 9,
+
     },
     noMoreCardsText: {
         fontSize: 22,
+        color: Colors.dark.tint
+    },
+    cardText: {
+        fontSize: 18,
+        alignItems: 'flex-start'
+    },
+    cardTitle: {
+        fontSize: 20
+    },
+    cardCoved: {
+        padding: 20
     }
 });
