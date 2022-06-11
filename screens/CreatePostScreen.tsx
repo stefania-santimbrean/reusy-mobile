@@ -2,6 +2,7 @@ import React from 'react';
 import { Alert, Pressable, StyleSheet } from 'react-native';
 import { TitanText } from '../components/StyledText';
 import { TitanTextInput } from '../components/StyledTextInput';
+import { Icon } from 'react-native-elements'
 
 import { ScrollView, View } from '../components/Themed';
 
@@ -37,11 +38,15 @@ export default function CreatePostScreen({ navigation }: RootTabScreenProps<'Cre
                 style={styles.input}
                 onChangeText={onChangeFirstName}
             />
-            <TitanText style={styles.text}>Add location</TitanText>
-            
-        <Pressable style={styles.singUpButton} onPress={onPressSignUp}>
-            <TitanText style={styles.signUpText}>Post</TitanText>
-        </Pressable>
+            <TitanText style={styles.text}>Transport details</TitanText>
+            <TitanTextInput
+                style={styles.input}
+                onChangeText={onChangeFirstName}
+            />
+            <Icon name='map' reverse={true}/>
+            <Pressable style={styles.singUpButton} onPress={onPressSignUp}>
+                <TitanText style={styles.signUpText}>Post</TitanText>
+            </Pressable>
         </ScrollView>
     );
 }
@@ -100,5 +105,5 @@ const styles = StyleSheet.create({
         fontSize: 15,
         alignItems: 'flex-end',
         borderRadius: 4,
-    },
+    }
 });
