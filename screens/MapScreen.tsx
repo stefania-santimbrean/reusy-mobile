@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions, Alert } from 'react-native';
 
 import { RootTabScreenProps } from '../types';
 import { View, Text } from '../components/Themed';
-import MapView, {Marker} from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 
 import React, { useEffect } from 'react';
 import * as Location from 'expo-location';
@@ -46,10 +46,13 @@ export default function MapScreen({ navigation }: RootTabScreenProps<'Map'>) {
     return (
         <View style={styles.container}>
             <MapView style={styles.map}
+                showsUserLocation={true}
+                followsUserLocation={true}
+                showsCompass={true}
                 >
                 <Marker draggable
                     coordinate={markerLocation}
-                    onDragEnd={(e) => setMarkerLocation(e.nativeEvent.coordinate )}
+                    onDragEnd={(e) => setMarkerLocation(e.nativeEvent.coordinate)}
                 />
             </MapView>
         </View>
