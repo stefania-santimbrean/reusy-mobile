@@ -1,7 +1,6 @@
 import { API_URL } from "../constants/API";
 import axios from 'axios';
 import { loginResponse, LoginUser, registerResponse, RegisterUser, UserProfile } from "../types";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 export default class API {
     apiUrl: String;
     constructor() {
