@@ -22,7 +22,7 @@ export default function CreatePostScreen({ navigation }: RootTabScreenProps<'Cre
     const onPressLocation = () => {
         Alert.alert("Location");
     }
-    const [location, setLocation] = React.useState(null);
+    const [location, setLocation] = React.useState({});
     const [errorMsg, setErrorMsg] = React.useState('');
 
     useEffect(() => {
