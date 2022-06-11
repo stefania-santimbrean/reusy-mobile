@@ -8,7 +8,6 @@ import { View } from '../components/Themed';
 import { RootStackScreenProps } from '../types';
 import Colors from '../constants/Colors';
 import API from '../services/API.class';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'>) {
@@ -18,8 +17,9 @@ export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'
   const onPressSignIn = async () => {
     try {
       const api = new API();
-      const accessToken = await api.login({ email, password });
-      console.log("TODO: Implement storing accessToken in localStorage");
+      await api.login({ email, password });
+      const user = await api.readProfile();
+      console.log('Profile' + user);
       navigation.navigate('Root')
     } catch (err) {
       Alert.alert('Log in failed, please try again!');

@@ -38,29 +38,31 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> = Composit
 >;
 
 export type LoginUser = {
-  email: String,
-  password: String
+  email: string,
+  password: string
 }
 
 export type loginResponse = {
   data: {
-      accessToken: String
+      accessToken: string
   }
 }
 
 export type RegisterUser = {
-  email: String,
-  password: String,
-  firstName: String,
-  lastName: String,
-  phone: String
+  email: string,
+  password: string,
+  firstName: string,
+  lastName: string,
+  phone: string
+}
+
+export type UserProfile = {
+  email: string,
+  firstName: string,
+  lastName: string,
+  phone: string
 }
 
 export type registerResponse = {
-  data: {
-      email: String,
-      firstName: String,
-      lastName: String,
-      phone: String
-  }
+  data: UserProfile
 }
