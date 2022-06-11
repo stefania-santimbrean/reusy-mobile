@@ -63,6 +63,7 @@ function BottomTabNavigator() {
       initialRouteName="Login"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+
       }}>
       <BottomTab.Screen
         name="Login"
@@ -70,6 +71,7 @@ function BottomTabNavigator() {
         options={{
           title: 'Login',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerTintColor: Colors[colorScheme].tint
         }}
       />
       <BottomTab.Screen
@@ -78,6 +80,7 @@ function BottomTabNavigator() {
         options={{
           title: 'Sign Up',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerTintColor: Colors[colorScheme].tint
         }}
       />
     </BottomTab.Navigator>
