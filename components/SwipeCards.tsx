@@ -4,11 +4,12 @@ import { Card } from '@rneui/themed';
 
 import SwipeCards from 'react-native-swipe-cards';
 import React from 'react';
+import Layout from '../constants/Layout';
 
 function DonationCard(props) {
     return (
-        <View style={styles.card}>
-            <Card>
+        <View style={styles.container}>
+            <Card containerStyle={styles.card}>
                 <Card.Title>{props.text}</Card.Title>
                 <Card.Divider />
                 <Card.Image
@@ -68,11 +69,17 @@ export default function DefaultSwipeCards(props) {
 }
 
 const styles = StyleSheet.create({
-    card: {
-        justifyContent: 'center',
+    container: {
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        width: 300,
-        height: 300,
+        width: Layout.window.width,
+        height: Layout.window.height,
+        padding: 8
+    },
+    card: {
+        borderColor: '#FF3D00',
+        borderWidth: 2,
+        borderRadius: 9
     },
     noMoreCardsText: {
         fontSize: 22,
