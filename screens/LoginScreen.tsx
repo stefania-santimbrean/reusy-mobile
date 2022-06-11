@@ -11,7 +11,7 @@ import API from '../services/API.class';
 import AppContext from '../components/AppContext';
 
 export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'>) {
-  const {accessToken} = useContext(AppContext);
+  const {accessToken, setAccessToken} = useContext(AppContext);
   if (accessToken !== "") {
     navigation.navigate('Root')
   }
@@ -20,8 +20,8 @@ export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'
   const onPressSignIn = async () => {
     try {
       const api = new API();
-      await api.login({ email, password });
-      const user = await api.readProfile();
+      const token = await api.login({ email, password });
+      setAccessToken(token);
       navigation.navigate('Root')
     } catch (err) {
       Alert.alert('Log in failed, please try again!');
