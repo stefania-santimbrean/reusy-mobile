@@ -22,6 +22,7 @@ import LinkingConfiguration from './LinkingConfiguration';
 import SignUpScreen from '../screens/SignUpScreen';
 import CreatePostScreen from '../screens/CreatePostScreen';
 import MapScreen from '../screens/MapScreen';
+import FeedScreen from '../screens/FeedScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -99,6 +100,15 @@ function BottomTabNavigator() {
         component={MapScreen}
         options={{
           title: 'Choose a location',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerTintColor: Colors[colorScheme].tint
+        }}
+      />
+      <BottomTab.Screen
+        name="Feed"
+        component={FeedScreen}
+        options={{
+          title: 'Feed',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerTintColor: Colors[colorScheme].tint
         }}

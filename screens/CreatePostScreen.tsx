@@ -8,7 +8,6 @@ import { ScrollView, View } from '../components/Themed';
 
 import { RootTabScreenProps } from '../types';
 import Colors from '../constants/Colors';
-import Login from '../services/Login.class';
 
 export default function CreatePostScreen({ navigation }: RootTabScreenProps<'CreatePost'>) {
     const [email, onChangeEmail] = React.useState("");
