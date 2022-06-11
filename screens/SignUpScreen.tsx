@@ -21,7 +21,7 @@ export default function SignUpScreen({ navigation }: RootTabScreenProps<'SignUp'
         try {
             const api = new API();
             await api.register({ email, password, firstName, lastName, phone})
-            console.log("TODO: Implement nav to Feed screen");
+            navigation.navigate('Login');
         } catch (err) {
             Alert.alert('Sign up failed, please try again!');
         }
