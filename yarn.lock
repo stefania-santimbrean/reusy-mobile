@@ -4356,6 +4356,13 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+here-maps-react@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/here-maps-react/-/here-maps-react-2.0.0.tgz#75fb3f66b51e87ba95893595eaf3de231529f6b4"
+  integrity sha512-nmncqlazK+B/5jK089kjxMk26/Q8+pWRIUIRFmygI+E5CEAWlFLLJAeqmtqtHH6sWr1Zv+sR1Dqtw9hk6MJ/bA==
+  dependencies:
+    lodash.debounce "^4.0.8"
+
 hermes-engine@~0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/hermes-engine/-/hermes-engine-0.11.0.tgz#bb224730d230a02a5af02c4e090d1f52d57dd3db"

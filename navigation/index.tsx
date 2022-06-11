@@ -21,6 +21,7 @@ import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../typ
 import LinkingConfiguration from './LinkingConfiguration';
 import SignUpScreen from '../screens/SignUpScreen';
 import CreatePostScreen from '../screens/CreatePostScreen';
+import MapScreen from '../screens/MapScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -61,7 +62,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="CreatePost"
+      initialRouteName="Map"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
 
@@ -89,6 +90,15 @@ function BottomTabNavigator() {
         component={CreatePostScreen}
         options={{
           title: 'Create new post',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerTintColor: Colors[colorScheme].tint
+        }}
+      />
+      <BottomTab.Screen
+        name="Map"
+        component={MapScreen}
+        options={{
+          title: 'Choose a location',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerTintColor: Colors[colorScheme].tint
         }}
