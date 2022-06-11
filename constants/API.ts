@@ -1,2 +1,1 @@
-const API_URL = 'https://reactnative.dev/movies.json';
-export default API_URL;
+export const API_URL = 'https://i48q208bal.execute-api.eu-central-1.amazonaws.com';

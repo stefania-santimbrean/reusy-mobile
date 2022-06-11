@@ -7,19 +7,17 @@ import { View } from '../components/Themed';
 
 import { RootTabScreenProps } from '../types';
 import Colors from '../constants/Colors';
-import Login from '../services/Login.class';
+import API from '../services/API.class';
 
 export default function LoginScreen({ navigation }: RootTabScreenProps<'Login'>) {
+  const api = new API();
   const [email, onChangeEmail] = React.useState("");
   const [password, onChangePassword] = React.useState("");
   const onPressSignIn = () => {
-    console.log(email + password);
-    Alert.alert(email);
-    const loginAPI = new Login();
-    loginAPI.login(email, password);
+    api.login({email, password});
   }
   const onPressSignUp = () => {
-    console.log(email + password);
+    console.log("TODO: Implement nav to screen Sign Up");
   }
   return (
     <View style={styles.container}>
