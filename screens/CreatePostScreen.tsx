@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Alert, Pressable, StyleSheet } from 'react-native';
 import { LatoText } from '../components/StyledText';
 import { LatoTextInput } from '../components/StyledTextInput';
 import { Icon } from "@rneui/themed";
-
+import * as Location from 'expo-location';
 import { ScrollView, View } from '../components/Themed';
 
 import { RootTabScreenProps } from '../types';
@@ -13,9 +13,6 @@ import Login from '../services/Login.class';
 export default function CreatePostScreen({ navigation }: RootTabScreenProps<'CreatePost'>) {
     const [email, onChangeEmail] = React.useState("");
     const [password, onChangePassword] = React.useState("");
-    const [firstName, onChangeFirstName] = React.useState("");
-    const [lastName, onChangeLastName] = React.useState("");
-    const [phone, onChangePhone] = React.useState("");
 
     const onPressSignUp = () => {
         console.log(email + password);
@@ -25,6 +22,30 @@ export default function CreatePostScreen({ navigation }: RootTabScreenProps<'Cre
     const onPressLocation = () => {
         Alert.alert("Location");
     }
+    const [location, setLocation] = React.useState(null);
+    const [errorMsg, setErrorMsg] = React.useState('');
+
+    useEffect(() => {
+        (async () => {
+          let { status } = await Location.requestForegroundPermissionsAsync();
+          if (status !== 'granted') {
+            setErrorMsg('Permission to access location was denied');
+            Alert.alert(errorMsg);
+            return;
+          }
+    
+          let location = await Location.getCurrentPositionAsync({});
+          setLocation(location);
+          console.log(location);
+        })();
+      }, []);
+    
+      let text = 'Waiting..';
+      if (errorMsg) {
+        text = errorMsg;
+      } else if (location) {
+        text = JSON.stringify(location);
+      }
     return (
         <ScrollView style={styles.container}>
             <LatoText style={styles.text}>Title</LatoText>
@@ -40,12 +61,12 @@ export default function CreatePostScreen({ navigation }: RootTabScreenProps<'Cre
             <LatoText style={styles.text}>Upload pictures</LatoText>
             <LatoTextInput
                 style={styles.input}
-                onChangeText={onChangeFirstName}
+                onChangeText={onChangePassword}
             />
             <LatoText style={styles.text}>Transport details</LatoText>
             <LatoTextInput
                 style={styles.input}
-                onChangeText={onChangeFirstName}
+                onChangeText={onChangePassword}
             />
             <Icon name='my-location' reverse={true} onPress={onPressLocation}/>
             <Pressable style={styles.singUpButton} onPress={onPressSignUp}>
@@ -106,7 +127,7 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     signUpText: {
-        fontSize: 15,
+        fontSize: 25,
         alignItems: 'flex-end',
         borderRadius: 4,
     }
