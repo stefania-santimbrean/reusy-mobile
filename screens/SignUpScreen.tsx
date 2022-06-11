@@ -1,7 +1,7 @@
 import React from 'react';
 import { Alert, Pressable, StyleSheet } from 'react-native';
-import { TitanText } from '../components/StyledText';
-import { TitanTextInput } from '../components/StyledTextInput';
+import { LatoText } from '../components/StyledText';
+import { LatoTextInput } from '../components/StyledTextInput';
 
 import { View } from '../components/Themed';
 
@@ -22,34 +22,34 @@ export default function SignUpScreen({ navigation }: RootTabScreenProps<'SignUp'
     }
     return (
         <View style={styles.container}>
-            <TitanText style={styles.signUp}>Sign Up</TitanText>
-            <TitanText style={styles.text}>Email</TitanText>
-            <TitanTextInput
+            <LatoText style={styles.signUp}>Sign Up</LatoText>
+            <LatoText style={styles.text}>Email</LatoText>
+            <LatoTextInput
                 style={styles.input}
                 onChangeText={onChangeEmail}
             />
-            <TitanText style={styles.text}>Password</TitanText>
-            <TitanTextInput
+            <LatoText style={styles.text}>Password</LatoText>
+            <LatoTextInput
                 style={styles.input}
                 onChangeText={onChangePassword}
             />
-            <TitanText style={styles.text}>First name</TitanText>
-            <TitanTextInput
+            <LatoText style={styles.text}>First name</LatoText>
+            <LatoTextInput
                 style={styles.input}
                 onChangeText={onChangeFirstName}
             />
-            <TitanText style={styles.text}>Last name</TitanText>
-            <TitanTextInput
+            <LatoText style={styles.text}>Last name</LatoText>
+            <LatoTextInput
                 style={styles.input}
                 onChangeText={onChangeLastName}
             />
-            <TitanText style={styles.text}>Phone number</TitanText>
-            <TitanTextInput
+            <LatoText style={styles.text}>Phone number</LatoText>
+            <LatoTextInput
                 style={styles.input}
                 onChangeText={onChangePhone}
             />
             <Pressable style={styles.button} onPress={onPressSignUp}>
-                <TitanText style={styles.text}>Sign Up</TitanText>
+                <LatoText style={styles.text}>Sign Up</LatoText>
             </Pressable>
         </View>
     );

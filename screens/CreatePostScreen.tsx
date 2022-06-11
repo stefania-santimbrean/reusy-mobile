@@ -1,8 +1,8 @@
 import React from 'react';
 import { Alert, Pressable, StyleSheet } from 'react-native';
-import { TitanText } from '../components/StyledText';
-import { TitanTextInput } from '../components/StyledTextInput';
-import { Icon } from 'react-native-elements'
+import { LatoText } from '../components/StyledText';
+import { LatoTextInput } from '../components/StyledTextInput';
+import { Icon } from "@rneui/themed";
 
 import { ScrollView, View } from '../components/Themed';
 
@@ -21,31 +21,35 @@ export default function CreatePostScreen({ navigation }: RootTabScreenProps<'Cre
         console.log(email + password);
         Alert.alert(email);
     }
+
+    const onPressLocation = () => {
+        Alert.alert("Location");
+    }
     return (
         <ScrollView style={styles.container}>
-            <TitanText style={styles.text}>Title</TitanText>
-            <TitanTextInput
+            <LatoText style={styles.text}>Title</LatoText>
+            <LatoTextInput
                 style={styles.input}
                 onChangeText={onChangeEmail}
             />
-            <TitanText style={styles.text}>Description</TitanText>
-            <TitanTextInput
+            <LatoText style={styles.text}>Description</LatoText>
+            <LatoTextInput
                 style={styles.input}
                 onChangeText={onChangePassword}
             />
-            <TitanText style={styles.text}>Upload pictures</TitanText>
-            <TitanTextInput
+            <LatoText style={styles.text}>Upload pictures</LatoText>
+            <LatoTextInput
                 style={styles.input}
                 onChangeText={onChangeFirstName}
             />
-            <TitanText style={styles.text}>Transport details</TitanText>
-            <TitanTextInput
+            <LatoText style={styles.text}>Transport details</LatoText>
+            <LatoTextInput
                 style={styles.input}
                 onChangeText={onChangeFirstName}
             />
-            <Icon name='map' reverse={true}/>
+            <Icon name='my-location' reverse={true} onPress={onPressLocation}/>
             <Pressable style={styles.singUpButton} onPress={onPressSignUp}>
-                <TitanText style={styles.signUpText}>Post</TitanText>
+                <LatoText style={styles.signUpText}>Post</LatoText>
             </Pressable>
         </ScrollView>
     );

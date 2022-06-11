@@ -21,6 +21,10 @@ export default function useCachedResources() {
           ...FontAwesome.font,
           'titan-one': require('../assets/fonts/TitanOne-Regular.ttf'),
         });
+        await Font.loadAsync({
+          ...FontAwesome.font,
+          'lato': require('../assets/fonts/Lato-Regular.ttf'),
+        });
       } catch (e) {
         // We might want to provide this error information to an error reporting service
         console.warn(e);

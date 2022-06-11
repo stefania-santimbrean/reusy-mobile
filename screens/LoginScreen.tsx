@@ -1,7 +1,7 @@
 import React from 'react';
 import { Alert, Pressable, StyleSheet } from 'react-native';
-import { TitanText } from '../components/StyledText';
-import { TitanTextInput } from '../components/StyledTextInput';
+import { LatoText } from '../components/StyledText';
+import { LatoTextInput } from '../components/StyledTextInput';
 
 import { View } from '../components/Themed';
 
@@ -23,22 +23,22 @@ export default function LoginScreen({ navigation }: RootTabScreenProps<'Login'>)
   }
   return (
     <View style={styles.container}>
-      <TitanText style={styles.signIn}>Sign In</TitanText>
-      <TitanText style={styles.text}>Email</TitanText>
-      <TitanTextInput
+      <LatoText style={styles.signIn}>Sign In</LatoText>
+      <LatoText style={styles.text}>Email</LatoText>
+      <LatoTextInput
         style={styles.input}
         onChangeText={onChangeEmail}
       />
-      <TitanText style={styles.text}>Password</TitanText>
-      <TitanTextInput
+      <LatoText style={styles.text}>Password</LatoText>
+      <LatoTextInput
         style={styles.input}
         onChangeText={onChangePassword}
       />
       <Pressable style={styles.button} onPress={onPressSignIn}>
-        <TitanText style={styles.text}>Log In</TitanText>
+        <LatoText style={styles.text}>Log In</LatoText>
       </Pressable>
       <Pressable style={styles.singUpButton} onPress={onPressSignUp}>
-        <TitanText style={styles.signUpText}>Sing Up</TitanText>
+        <LatoText style={styles.signUpText}>Sign Up</LatoText>
       </Pressable>
     </View>
   );

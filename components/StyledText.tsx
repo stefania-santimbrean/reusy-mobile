@@ -7,3 +7,7 @@ export function MonoText(props: TextProps) {
 export function TitanText(props: TextProps)  {
   return <Text {...props} style={[props.style, { fontFamily: 'titan-one' }]} />;
 }
+
+export function LatoText(props: TextProps)  {
+  return <Text {...props} style={[props.style, { fontFamily: 'lato' }]} />;
+}
