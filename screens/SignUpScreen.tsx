@@ -5,12 +5,12 @@ import { LatoTextInput } from '../components/StyledTextInput';
 
 import { View } from '../components/Themed';
 
-import { RootTabScreenProps } from '../types';
+import { RootStackScreenProps } from '../types';
 import Colors from '../constants/Colors';
 import API from '../services/API.class';
 
 
-export default function SignUpScreen({ navigation }: RootTabScreenProps<'SignUp'>) {
+export default function SignUpScreen({ navigation }: RootStackScreenProps<'SignUp'>) {
     const [email, onChangeEmail] = React.useState("");
     const [password, onChangePassword] = React.useState("");
     const [firstName, onChangeFirstName] = React.useState("");

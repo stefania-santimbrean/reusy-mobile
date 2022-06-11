@@ -15,26 +15,26 @@ const linking: LinkingOptions<RootStackParamList> = {
     screens: {
       Root: {
         screens: {
-          TabOne: {
-            screens: {
-              TabOneScreen: 'one',
-            },
-          },
-          TabTwo: {
-            screens: {
-              TabTwoScreen: 'two',
-            },
-          },
-          Login: {
-            screens: {
-              LoginScreen: 'three',
-            },
-          },
-          SignUp: {
-            screens: {
-              SignUpScreen: 'four',
-            },
-          },
+          // TabOne: {
+          //   screens: {
+          //     TabOneScreen: 'one',
+          //   },
+          // },
+          // TabTwo: {
+          //   screens: {
+          //     TabTwoScreen: 'two',
+          //   },
+          // },
+          // Login: {
+          //   screens: {
+          //     LoginScreen: 'three',
+          //   },
+          // },
+          // SignUp: {
+          //   screens: {
+          //     SignUpScreen: 'four',
+          //   },
+          // },
           CreatePost: {
             screens: {
               CreatePostScreen: 'five',
@@ -48,6 +48,8 @@ const linking: LinkingOptions<RootStackParamList> = {
         },
       },
       Modal: 'modal',
+      Login: 'login',
+      SignUp: 'signUp',
       NotFound: '*',
     },
   },

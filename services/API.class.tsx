@@ -15,7 +15,7 @@ export default class API {
                 url: `${this.apiUrl}/login`,
             }).then((response: loginResponse) => {
                 console.log(response.data);
-                resolve(response.data);
+                resolve(response.data.accessToken);
             }).catch((err) => {
                 console.log(err);
                 reject(err);
