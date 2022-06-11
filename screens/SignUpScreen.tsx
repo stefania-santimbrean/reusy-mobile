@@ -18,9 +18,13 @@ export default function SignUpScreen({ navigation }: RootTabScreenProps<'SignUp'
     const [phone, onChangePhone] = React.useState("");
 
     const onPressSignUp = async () => {
-        const api = new API();
-        await api.register({ email, password, firstName, lastName, phone})
-        console.log("TODO: Implement nav to Feed screen");
+        try {
+            const api = new API();
+            await api.register({ email, password, firstName, lastName, phone})
+            console.log("TODO: Implement nav to Feed screen");
+        } catch (err) {
+            Alert.alert('Sign up failed, please try again!');
+        }
     }
     return (
         <View style={styles.container}>

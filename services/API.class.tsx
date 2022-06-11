@@ -35,22 +35,35 @@ export default class API {
     }
 
     async login(user: LoginUser) {
-        axios({
-            method: 'post',
-            data: user,
-            url: `${this.apiUrl}/login`,
-        }).then((response: loginResponse) => {
-            console.log(response.data);
-        });
+        return new Promise((resolve, reject) => {
+            axios({
+                method: 'post',
+                data: user,
+                url: `${this.apiUrl}/login`,
+            }).then((response: loginResponse) => {
+                console.log(response.data);
+                resolve(response.data);
+            }).catch((err) => {
+                console.log(err);
+                reject(err);
+            });
+        })
     }
 
     async register(user: RegisterUser) {
-        axios({
-            method: 'post',
-            data: user,
-            url: `${this.apiUrl}/users`,
-        }).then((response: registerResponse) => {
-            console.log(response.data);
-        });
+        return new Promise((resolve, reject) => {
+            axios({
+                method: 'post',
+                data: user,
+                url: `${this.apiUrl}/users`,
+            }).then((response: registerResponse) => {
+                console.log(response.data);
+                resolve(response.data);
+            }).catch((err) => {
+                console.log(err);
+                reject(err);
+            });
+        })
+
     }
 }
