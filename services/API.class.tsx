@@ -24,6 +24,7 @@ export default class API {
     }
 
     async register(user: RegisterUser) {
+        console.log(`${this.apiUrl}/users`)
         return new Promise((resolve, reject) => {
             axios({
                 method: 'post',
