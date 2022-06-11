@@ -7,7 +7,8 @@ import { View } from '../components/Themed';
 
 import { RootTabScreenProps } from '../types';
 import Colors from '../constants/Colors';
-import Login from '../services/Login.class';
+import API from '../services/API.class';
+
 
 export default function SignUpScreen({ navigation }: RootTabScreenProps<'SignUp'>) {
     const [email, onChangeEmail] = React.useState("");
@@ -16,9 +17,10 @@ export default function SignUpScreen({ navigation }: RootTabScreenProps<'SignUp'
     const [lastName, onChangeLastName] = React.useState("");
     const [phone, onChangePhone] = React.useState("");
 
-    const onPressSignUp = () => {
-        console.log(email + password);
-        Alert.alert(email);
+    const onPressSignUp = async () => {
+        const api = new API();
+        await api.register({ email, password, firstName, lastName, phone})
+        console.log("TODO: Implement nav to Feed screen");
     }
     return (
         <View style={styles.container}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Pressable, StyleSheet } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 import { LatoText } from '../components/StyledText';
 import { LatoTextInput } from '../components/StyledTextInput';
 
@@ -13,8 +13,9 @@ export default function LoginScreen({ navigation }: RootTabScreenProps<'Login'>)
   const api = new API();
   const [email, onChangeEmail] = React.useState("");
   const [password, onChangePassword] = React.useState("");
-  const onPressSignIn = () => {
-    api.login({email, password});
+  const onPressSignIn = async () => {
+    await api.login({email, password});
+    console.log("TODO: Implement storing accessToken in localStorage");
   }
   const onPressSignUp = () => {
     console.log("TODO: Implement nav to screen Sign Up");

@@ -1,7 +1,7 @@
 import { API_URL } from "../constants/API";
 import axios from 'axios';
 
-export type loginBody = {
+export type LoginUser = {
     email: String,
     password: String
 }
@@ -11,13 +11,30 @@ export type loginResponse = {
         accessToken: String
     }
 }
+
+export type RegisterUser = {
+    email: String,
+    password: String,
+    firstName: String,
+    lastName: String,
+    phone: String
+}
+
+export type registerResponse = {
+    data: {
+        email: String,
+        firstName: String,
+        lastName: String,
+        phone: String
+    }
+}
 export default class API {
     apiUrl: String;
     constructor() {
         this.apiUrl = API_URL
     }
 
-    login(user: loginBody) {
+    async login(user: LoginUser) {
         axios({
             method: 'post',
             data: user,
@@ -25,6 +42,15 @@ export default class API {
         }).then((response: loginResponse) => {
             console.log(response.data);
         });
+    }
 
+    async register(user: RegisterUser) {
+        axios({
+            method: 'post',
+            data: user,
+            url: `${this.apiUrl}/users`,
+        }).then((response: registerResponse) => {
+            console.log(response.data);
+        });
     }
 }
