@@ -20,6 +20,7 @@ import LoginScreen from '../screens/LoginScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import SignUpScreen from '../screens/SignUpScreen';
+import CreatePostScreen from '../screens/CreatePostScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -60,7 +61,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Login"
+      initialRouteName="CreatePost"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
 
@@ -79,6 +80,15 @@ function BottomTabNavigator() {
         component={SignUpScreen}
         options={{
           title: 'Sign Up',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerTintColor: Colors[colorScheme].tint
+        }}
+      />
+      <BottomTab.Screen
+        name="CreatePost"
+        component={CreatePostScreen}
+        options={{
+          title: 'Create new post',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerTintColor: Colors[colorScheme].tint
         }}

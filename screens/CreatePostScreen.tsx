@@ -1,0 +1,104 @@
+import React from 'react';
+import { Alert, Pressable, StyleSheet } from 'react-native';
+import { TitanText } from '../components/StyledText';
+import { TitanTextInput } from '../components/StyledTextInput';
+
+import { ScrollView, View } from '../components/Themed';
+
+import { RootTabScreenProps } from '../types';
+import Colors from '../constants/Colors';
+import Login from '../services/Login.class';
+
+export default function CreatePostScreen({ navigation }: RootTabScreenProps<'CreatePost'>) {
+    const [email, onChangeEmail] = React.useState("");
+    const [password, onChangePassword] = React.useState("");
+    const [firstName, onChangeFirstName] = React.useState("");
+    const [lastName, onChangeLastName] = React.useState("");
+    const [phone, onChangePhone] = React.useState("");
+
+    const onPressSignUp = () => {
+        console.log(email + password);
+        Alert.alert(email);
+    }
+    return (
+        <ScrollView style={styles.container}>
+            <TitanText style={styles.text}>Title</TitanText>
+            <TitanTextInput
+                style={styles.input}
+                onChangeText={onChangeEmail}
+            />
+            <TitanText style={styles.text}>Description</TitanText>
+            <TitanTextInput
+                style={styles.input}
+                onChangeText={onChangePassword}
+            />
+            <TitanText style={styles.text}>Upload pictures</TitanText>
+            <TitanTextInput
+                style={styles.input}
+                onChangeText={onChangeFirstName}
+            />
+            <TitanText style={styles.text}>Add location</TitanText>
+            
+        <Pressable style={styles.singUpButton} onPress={onPressSignUp}>
+            <TitanText style={styles.signUpText}>Post</TitanText>
+        </Pressable>
+        </ScrollView>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 20
+    },
+    signUp: {
+        fontSize: 60,
+        fontWeight: 'bold',
+        textAlign: 'left',
+        paddingBottom: 30,
+        alignItems: 'flex-start'
+    },
+    text: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        alignItems: 'flex-start'
+    },
+    input: {
+        fontSize: 20,
+        height: 45,
+        marginVertical: 12,
+        borderWidth: 2,
+        borderRadius: 2,
+        borderColor: Colors.dark.border,
+        padding: 10,
+        alignItems: 'flex-start',
+        color: Colors.dark.text
+    },
+    button: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 2,
+        backgroundColor: Colors.dark.border,
+        borderColor: Colors.dark.border,
+        height: 45,
+        borderRadius: 4,
+        marginTop: 10
+    },
+    singUpButton: {
+        fontWeight: 'bold',
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+        borderWidth: 2,
+        borderColor: Colors.dark.background,
+        height: 45,
+        borderRadius: 4,
+        marginBottom: 10
+    },
+    signUpText: {
+        fontSize: 15,
+        alignItems: 'flex-end',
+        borderRadius: 4,
+    },
+});
