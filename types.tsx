@@ -38,3 +38,31 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> = Composit
   BottomTabScreenProps<RootTabParamList, Screen>,
   NativeStackScreenProps<RootStackParamList>
 >;
+
+export type LoginUser = {
+  email: String,
+  password: String
+}
+
+export type loginResponse = {
+  data: {
+      accessToken: String
+  }
+}
+
+export type RegisterUser = {
+  email: String,
+  password: String,
+  firstName: String,
+  lastName: String,
+  phone: String
+}
+
+export type registerResponse = {
+  data: {
+      email: String,
+      firstName: String,
+      lastName: String,
+      phone: String
+  }
+}

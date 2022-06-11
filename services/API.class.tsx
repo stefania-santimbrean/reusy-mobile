@@ -1,33 +1,6 @@
 import { API_URL } from "../constants/API";
 import axios from 'axios';
-
-export type LoginUser = {
-    email: String,
-    password: String
-}
-
-export type loginResponse = {
-    data: {
-        accessToken: String
-    }
-}
-
-export type RegisterUser = {
-    email: String,
-    password: String,
-    firstName: String,
-    lastName: String,
-    phone: String
-}
-
-export type registerResponse = {
-    data: {
-        email: String,
-        firstName: String,
-        lastName: String,
-        phone: String
-    }
-}
+import { loginResponse, LoginUser, registerResponse, RegisterUser } from "../types";
 export default class API {
     apiUrl: String;
     constructor() {
