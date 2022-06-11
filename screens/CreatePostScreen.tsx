@@ -10,16 +10,16 @@ import { RootTabScreenProps } from '../types';
 import Colors from '../constants/Colors';
 
 export default function CreatePostScreen({ navigation }: RootTabScreenProps<'CreatePost'>) {
-    const [email, onChangeEmail] = React.useState("");
-    const [password, onChangePassword] = React.useState("");
+    const [title, onChangeTitle] = React.useState("");
+    const [description, onChangeDescr] = React.useState("");
+    const [transportDetails, onChangeTranspDetails] = React.useState("");
 
-    const onPressSignUp = () => {
-        console.log(email + password);
-        Alert.alert(email);
+    const onPressCreatePost = () => {
+        Alert.alert("TODO: Call API for creating a post!");
     }
 
     const onPressLocation = () => {
-        Alert.alert("Location");
+        navigation.navigate('Map');
     }
     const [location, setLocation] = React.useState({});
     const [errorMsg, setErrorMsg] = React.useState('');
@@ -50,25 +50,25 @@ export default function CreatePostScreen({ navigation }: RootTabScreenProps<'Cre
             <LatoText style={styles.text}>Title</LatoText>
             <LatoTextInput
                 style={styles.input}
-                onChangeText={onChangeEmail}
+                onChangeText={onChangeTitle}
             />
             <LatoText style={styles.text}>Description</LatoText>
             <LatoTextInput
                 style={styles.input}
-                onChangeText={onChangePassword}
+                onChangeText={onChangeDescr}
             />
             <LatoText style={styles.text}>Upload pictures</LatoText>
-            <LatoTextInput
+            {/* <LatoTextInput
                 style={styles.input}
                 onChangeText={onChangePassword}
-            />
+            /> */}
             <LatoText style={styles.text}>Transport details</LatoText>
             <LatoTextInput
                 style={styles.input}
-                onChangeText={onChangePassword}
+                onChangeText={onChangeTranspDetails}
             />
             <Icon name='my-location' reverse={true} onPress={onPressLocation}/>
-            <Pressable style={styles.singUpButton} onPress={onPressSignUp}>
+            <Pressable style={styles.singUpButton} onPress={onPressCreatePost}>
                 <LatoText style={styles.signUpText}>Post</LatoText>
             </Pressable>
         </ScrollView>

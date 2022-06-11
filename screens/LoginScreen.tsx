@@ -18,6 +18,7 @@ export default function LoginScreen({ navigation }: RootTabScreenProps<'Login'>)
       const api = new API();
       await api.login({ email, password });
       console.log("TODO: Implement storing accessToken in localStorage");
+      navigation.navigate('Feed')
     } catch (err) {
       Alert.alert('Log in failed, please try again!');
     }
