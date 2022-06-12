@@ -5,3 +5,6 @@
 # First time
 
 `yarn install`
+
+# ToDos
+- Integrate location from maps screen in Create post screen

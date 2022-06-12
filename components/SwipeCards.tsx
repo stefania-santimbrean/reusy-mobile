@@ -17,7 +17,7 @@ function DonationCard(props) {
                 <Card.Image
                     style={styles.cardCover}
                     source={{
-                        uri: props.imageUrls[0]
+                        uri: props.coverUrl
                     }}
                 />
                 <Text style={styles.cardText}>
