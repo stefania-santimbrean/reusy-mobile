@@ -65,13 +65,28 @@ export default class API {
     }
 
 
-    async readPosts(token: string): Promise<Post[]> {
+    async readPosts(token: string, location, search): Promise<Post[]> {
+        const url = `${this.apiUrl}/posts`;
+        if ((location.coords.latitude && location.coords.longitude) || search) {
+            url + '?'
+        }
+        if (search) {
+            url + `keyword=${search}&`
+        }
+
+        if (location.coords.latitude) {
+            url + `lat=${location.coords.latitude}&`
+        }
+
+        if (location.coords.longitude) {
+            url + `long=${location.coords.longitude}&`
+        }
         return axios({
             method: 'get',
             headers: {
                 'Authorization': `Bearer ${token}`
             },
-            url: `${this.apiUrl}/posts`,
+            url: url,
         }).then((response: ResponseMultiplePost) => {
             console.log("Api")
             console.log(response.data);
