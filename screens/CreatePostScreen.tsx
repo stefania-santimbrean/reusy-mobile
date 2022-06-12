@@ -20,20 +20,20 @@ export default function CreatePostScreen({ navigation }: RootTabScreenProps<'Cre
 
     const onPressCreatePost = async () => {
         try {
+            console.log(location);
             const post = {
                 name: title,
                 description: description,
                 transportDetails: transportDetails,
                 imageUrls: imageUrls,
                 location: {
-                    lat: location.latitude,
-                    long: location.longitude
+                    lat: location.coords.latitude,
+                    long: location.coords.longitude
                 }
             }
-            console.log(post);
-            console.log(accessToken);
             const api = new API();
-            await api.createPost(post, accessToken);
+            const createdPost = await api.createPost(post, accessToken);
+            console.log(createdPost);
         } catch (err) {
             console.log(err);
             Alert.alert('Creating a post failed!')
