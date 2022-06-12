@@ -66,3 +66,22 @@ export type UserProfile = {
 export type registerResponse = {
   data: UserProfile
 }
+export type Location = {
+  lat: Float32Array,
+  long: Float32Array
+}
+
+export type Post = {
+    name: string,
+    description: string,
+    transportDetails: string
+    imageUrls: [],
+    location: Location
+}
+
+export type ResponsePost = {
+  data:  Post & {
+    createdAt: string,
+    postId: string
+  }
+}

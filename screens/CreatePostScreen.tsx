@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Alert, Pressable, StyleSheet } from 'react-native';
 import { LatoText } from '../components/StyledText';
 import { LatoTextInput } from '../components/StyledTextInput';
@@ -8,15 +8,39 @@ import { ScrollView, View } from '../components/Themed';
 
 import { RootTabScreenProps } from '../types';
 import Colors from '../constants/Colors';
+import API from '../services/API.class';
+import AppContext from '../components/AppContext';
 
 export default function CreatePostScreen({ navigation }: RootTabScreenProps<'CreatePost'>) {
     const [title, onChangeTitle] = React.useState("");
     const [description, onChangeDescr] = React.useState("");
     const [transportDetails, onChangeTranspDetails] = React.useState("");
+    const [imageUrls, onChangeImageUrls] = React.useState([]);
+    const { accessToken, setAccessToken } = useContext(AppContext);
 
-    const onPressCreatePost = () => {
-        Alert.alert("TODO: Call API for creating a post!");
-    }
+    const onPressCreatePost = async () => {
+        try {
+            const post = {
+                name: title,
+                description: description,
+                transportDetails: transportDetails,
+                imageUrls: imageUrls,
+                location: {
+                    lat: location.latitude,
+                    long: location.longitude
+                }
+            }
+            console.log(post);
+            console.log(accessToken);
+            const api = new API();
+            await api.createPost(post, accessToken);
+        } catch (err) {
+            console.log(err);
+            Alert.alert('Creating a post failed!')
+        }
+
+    };
+
 
     const onPressLocation = () => {
         navigation.navigate('Map');
@@ -26,25 +50,25 @@ export default function CreatePostScreen({ navigation }: RootTabScreenProps<'Cre
 
     useEffect(() => {
         (async () => {
-          let { status } = await Location.requestForegroundPermissionsAsync();
-          if (status !== 'granted') {
-            setErrorMsg('Permission to access location was denied');
-            Alert.alert(errorMsg);
-            return;
-          }
-    
-          let location = await Location.getCurrentPositionAsync({});
-          setLocation(location);
-          console.log(location);
+            let { status } = await Location.requestForegroundPermissionsAsync();
+            if (status !== 'granted') {
+                setErrorMsg('Permission to access location was denied');
+                Alert.alert(errorMsg);
+                return;
+            }
+
+            let location = await Location.getCurrentPositionAsync({});
+            setLocation(location);
+            console.log(location);
         })();
-      }, []);
-    
-      let text = 'Waiting..';
-      if (errorMsg) {
+    }, []);
+
+    let text = 'Waiting..';
+    if (errorMsg) {
         text = errorMsg;
-      } else if (location) {
+    } else if (location) {
         text = JSON.stringify(location);
-      }
+    }
     return (
         <ScrollView style={styles.container}>
             <LatoText style={styles.text}>Title</LatoText>
@@ -67,7 +91,7 @@ export default function CreatePostScreen({ navigation }: RootTabScreenProps<'Cre
                 style={styles.input}
                 onChangeText={onChangeTranspDetails}
             />
-            <Icon name='my-location' reverse={true} onPress={onPressLocation}/>
+            <Icon name='my-location' reverse={true} onPress={onPressLocation} />
             <Pressable style={styles.singUpButton} onPress={onPressCreatePost}>
                 <LatoText style={styles.signUpText}>Post</LatoText>
             </Pressable>

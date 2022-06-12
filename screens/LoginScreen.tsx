@@ -11,7 +11,7 @@ import API from '../services/API.class';
 import AppContext from '../components/AppContext';
 
 export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'>) {
-  const {accessToken, setAccessToken} = useContext(AppContext);
+  const { accessToken, setAccessToken } = useContext(AppContext);
   if (accessToken !== "") {
     navigation.navigate('Root')
   }
