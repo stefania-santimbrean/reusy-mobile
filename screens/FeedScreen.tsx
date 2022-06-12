@@ -61,14 +61,6 @@ export default function FeedScreen({ navigation }: RootTabScreenProps<'Feed'>) {
 
 const styles = StyleSheet.create({
     search: {
-        fontSize: 20,
-        height: 45,
-        marginVertical: 12,
-        borderWidth: 2,
-        borderRadius: 2,
-        borderColor: Colors.dark.border,
-        padding: 10,
-        alignItems: 'flex-start',
-        color: Colors.dark.text
+        color: Colors.dark.tint,
     }
 });
