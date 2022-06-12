@@ -15,7 +15,16 @@ export default function CreatePostScreen({ navigation }: RootTabScreenProps<'Cre
     const [title, onChangeTitle] = React.useState("");
     const [description, onChangeDescr] = React.useState("");
     const [transportDetails, onChangeTranspDetails] = React.useState("");
-    const [imageUrls, onChangeImageUrls] = React.useState([]);
+    const [imageUrls, onChangeImageUrls] = React.useState([{
+        name: undefined,
+        description: undefined,
+        transportDetails: undefined,
+        imageUrls: [],
+        location: {
+            lat: undefined,
+            long: undefined
+        }
+    }]);
     const { accessToken, setAccessToken } = useContext(AppContext);
 
     const onPressCreatePost = async () => {

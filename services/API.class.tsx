@@ -1,6 +1,6 @@
 import { API_URL } from "../constants/API";
 import axios from 'axios';
-import { loginResponse, LoginUser, registerResponse, RegisterUser, UserProfile, Post, ResponsePost } from "../types";
+import { loginResponse, LoginUser, registerResponse, RegisterUser, UserProfile, Post, ResponsePost, ResponseMultiplePost } from "../types";
 export default class API {
     apiUrl: String;
     constructor() {
@@ -62,6 +62,22 @@ export default class API {
         }).catch((err) => {
             throw err;
         });
+    }
 
+
+    async readPosts(token: string): Promise<Post[]> {
+        return axios({
+            method: 'get',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            url: `${this.apiUrl}/posts`,
+        }).then((response: ResponseMultiplePost) => {
+            console.log("Api")
+            console.log(response.data);
+            return response.data;
+        }).catch((err) => {
+            throw err;
+        });
     }
 }

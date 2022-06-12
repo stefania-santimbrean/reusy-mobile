@@ -9,7 +9,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {}
+    interface RootParamList extends RootStackParamList { }
   }
 }
 
@@ -44,7 +44,7 @@ export type LoginUser = {
 
 export type loginResponse = {
   data: {
-      accessToken: string
+    accessToken: string
   }
 }
 
@@ -72,16 +72,23 @@ export type Location = {
 }
 
 export type Post = {
-    name: string,
-    description: string,
-    transportDetails: string
-    imageUrls: [],
-    location: Location
+  name: string,
+  description: string,
+  transportDetails: string
+  imageUrls: [],
+  location: Location
 }
 
 export type ResponsePost = {
-  data:  Post & {
+  data: Post & {
     createdAt: string,
     postId: string
   }
+}
+
+export type ResponseMultiplePost = {
+  data: [Post & {
+    createdAt: string,
+    postId: string
+  }]
 }
