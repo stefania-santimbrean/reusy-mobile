@@ -11,7 +11,7 @@ function DonationCard(props) {
     return (
         <View style={styles.container}>
             <Card containerStyle={styles.card}>
-                <Card.Title style={styles.cardTitle}>{props.text}</Card.Title>
+                <Card.Title style={styles.cardTitle}>{props.title}</Card.Title>
                 <Card.Divider />
                 <Card.Image
                     style={styles.cardCover}
@@ -20,8 +20,7 @@ function DonationCard(props) {
                     }}
                 />
                 <Text style={styles.cardText}>
-                    The idea with React Native Elements is more about component
-                    structure than actual design.
+                    {props.text}
                 </Text>
             </Card>
         </View>
@@ -38,12 +37,30 @@ function NoMoreCards(props) {
 
 export default function DefaultSwipeCards(props) {
     const [cards, setCards] = React.useState([
-        { text: 'Tomato', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' },
-        { text: 'Aubergine', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' },
-        { text: 'Courgette', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' },
-        { text: 'Blueberry', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' },
-        { text: 'Umm...', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' },
-        { text: 'orange', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' }
+        {
+            title: 'Tomato', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg',
+            text: 'The idea with React Native Elements is more about component structure than actual design.'
+        },
+        {
+            title: 'Aubergine', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg',
+            text: 'The idea with React Native Elements is more about component structure than actual design.'
+        },
+        {
+            title: 'Courgette', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg',
+            text: 'The idea with React Native Elements is more about component structure than actual design.'
+        },
+        {
+            title: 'Blueberry', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg',
+            text: 'The idea with React Native Elements is more about component structure than actual design.'
+        },
+        {
+            title: 'Umm...', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg',
+            text: 'The idea with React Native Elements is more about component structure than actual design.'
+        },
+        {
+            title: 'orange', uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg',
+            text: 'The idea with React Native Elements is more about component structure than actual design.'
+        }
     ])
     const handleYup = (card) => {
         console.log(`Yup for ${card.text}`)
